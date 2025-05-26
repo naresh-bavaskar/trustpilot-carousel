@@ -1,0 +1,14 @@
+trustpilot_carousel.endpoint:
+  path: '/mock-reviews'
+  defaults:
+    _controller: '\Drupal\trustpilot_carousel\Controller\MockReviewsController::getReviews'
+    _format: 'json'
+  requirements:
+    _permission: 'access content'
+trustpilot_carousel.clear_block_cache:
+  path: '/admin/config/system/clear-trustpilot-cache'
+  defaults:
+    _form: '\Drupal\trustpilot_carousel\Form\TrustPilotCacheClearController'
+    _title: 'Clear Trustpilot Carousel Cache'
+  requirements:
+    _permission: 'administer site configuration'

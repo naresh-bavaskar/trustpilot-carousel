@@ -1,0 +1,28 @@
+<div id="trustpilotCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    {% for chunk in reviews|batch(3) %}
+      <div class="carousel-item {{ loop.first ? 'active' : '' }}">
+        <div class="row px-3">
+          {% for review in chunk %}
+            <div class="col-md-4">
+              <div class="p-3 text-center border rounded h-100">
+                <h5>{{ review.title }}</h5>
+                <p class="mb-2">"{{ review.content }}"</p>
+                <small>– {{ review.author }}, {{ review.date }}</small>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#trustpilotCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#trustpilotCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

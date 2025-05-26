@@ -1,0 +1,6 @@
+trustpilot_carousel.clear_block_cache:
+  title: 'Clear Trustpilot Carousel Cache'
+  description: 'Clear the cache of the Trustpilot Carousel block manually.'
+  parent: system.admin_config_system
+  route_name: trustpilot_carousel.clear_block_cache
+  weight: 100
