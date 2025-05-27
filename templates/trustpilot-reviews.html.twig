@@ -1,28 +1,53 @@
-<div id="trustpilotCarousel" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    {% for chunk in reviews|batch(3) %}
-      <div class="carousel-item {{ loop.first ? 'active' : '' }}">
-        <div class="row px-3">
-          {% for review in chunk %}
-            <div class="col-md-4">
-              <div class="p-3 text-center border rounded h-100">
-                <h5>{{ review.title }}</h5>
-                <p class="mb-2">"{{ review.content }}"</p>
-                <small>– {{ review.author }}, {{ review.date }}</small>
-              </div>
-            </div>
-          {% endfor %}
-        </div>
-      </div>
-    {% endfor %}
+<div class="row border border-2 mb-4">
+  <!-- Sticky Left Column -->
+  <div class="col-md-3">
+    {% set sticky_review = reviews[0] %}
+    <div class="p-3 text-center rounded h-100 top-0 bg-white">
+      <h2>Excellent</h2>
+      <small>Based on Trustpilot</small>
+    </div>
   </div>
 
-  <button class="carousel-control-prev" type="button" data-bs-target="#trustpilotCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#trustpilotCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+  <!-- Carousel for Remaining Reviews -->
+  <div class="col-md-9">
+    <div id="trustpilotCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        {% for chunk in reviews|batch(3) %}
+          <div class="carousel-item {{ loop.first ? 'active' : '' }}">
+            <div class="row px-3">
+              {% for review in chunk %}
+                <div class="col-md-4">
+                  <div class="p-3 text-center border rounded h-100">
+                    <div class="star-rating text-warning">
+                      {% for i in 1..5 %}
+                        {% if i <= review.rating %}
+                          <i class="bi bi-star-fill"></i>
+                        {% else %}
+                          <i class="bi bi-star"></i>
+                        {% endif %}
+                      {% endfor %}
+                    </div>
+                    {{ review.date }}
+                    <h5>{{ review.title }}</h5>
+                    <p class="mb-2">"{{ review.content }}"</p>
+                    <small>– {{ review.author }}</small>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <!-- Carousel Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#trustpilotCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#trustpilotCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
 </div>

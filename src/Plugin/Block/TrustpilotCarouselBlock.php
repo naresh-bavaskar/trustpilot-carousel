@@ -96,7 +96,7 @@ class TrustpilotCarouselBlock extends BlockBase implements ContainerFactoryPlugi
       ],
       '#cache' => [
         'tags' => ['trustpilot_reviews_data'],
-        'max-age' => 3600,
+        // 'max-age' => 3600,
       ],
     ];
   }
