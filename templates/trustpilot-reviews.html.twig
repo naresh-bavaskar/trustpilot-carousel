@@ -1,14 +1,13 @@
 <div class="row border border-2 mb-4">
   <!-- Sticky Left Column -->
   <div class="col-md-3">
-    {% set sticky_review = reviews[0] %}
     <div class="p-3 text-center rounded h-100 top-0 bg-white">
       <h2>Excellent</h2>
       <small>Based on Trustpilot</small>
     </div>
   </div>
 
-  <!-- Carousel for Remaining Reviews -->
+  <!-- Carousel -->
   <div class="col-md-9">
     <div id="trustpilotCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
@@ -18,7 +17,7 @@
               {% for review in chunk %}
                 <div class="col-md-4">
                   <div class="p-3 text-center border rounded h-100">
-                    <div class="star-rating text-warning">
+                    <div class="text-success">
                       {% for i in 1..5 %}
                         {% if i <= review.rating %}
                           <i class="bi bi-star-fill"></i>

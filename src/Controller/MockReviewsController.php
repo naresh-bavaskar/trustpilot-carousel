@@ -5,12 +5,12 @@ namespace Drupal\trustpilot_carousel\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
- *
+ * Mock controller to simulate Trustpilot reviews data.
  */
 class MockReviewsController {
 
   /**
-   *
+   * Returns a JSON response with mock reviews data.
    */
   public function getReviews() {
     $data = [

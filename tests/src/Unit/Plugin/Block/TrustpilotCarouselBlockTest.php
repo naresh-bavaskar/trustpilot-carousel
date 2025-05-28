@@ -4,9 +4,7 @@ namespace Drupal\Tests\trustpilot_carousel\Unit\Plugin\Block;
 
 use Drupal\trustpilot_carousel\Plugin\Block\TrustpilotCarouselBlock;
 use Drupal\Tests\UnitTestCase;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use GuzzleHttp\ClientInterface;
-use Drupal\Core\Url;
 
 /**
  * @coversDefaultClass \Drupal\trustpilot_carousel\Unit

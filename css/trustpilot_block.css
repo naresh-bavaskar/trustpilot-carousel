@@ -1,7 +1,9 @@
-.block-trustpilot-carousel .carousel-control-prev-icon, .block-trustpilot-carousel .carousel-control-next-icon {
+.block-trustpilot-carousel .carousel-control-prev-icon,
+.block-trustpilot-carousel .carousel-control-next-icon {
   background-color: black;
 }
 
-.carousel-control-next, .carousel-control-prev {
+.carousel-control-next,
+.carousel-control-prev {
   width: 10% !important;
 }

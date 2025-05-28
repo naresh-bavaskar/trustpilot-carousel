@@ -19,11 +19,15 @@ use Drupal\Core\Form\FormStateInterface;
  * )
  */
 class TrustpilotCarouselBlock extends BlockBase implements ContainerFactoryPluginInterface {
-
+  /**
+   * The HTTP client service.
+   *
+   * @var \GuzzleHttp\ClientInterface
+   */
   protected $httpClient;
 
   /**
-   *
+   * Constructs a new TrustpilotCarouselBlock instance.
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, ClientInterface $http_client) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
@@ -31,7 +35,7 @@ class TrustpilotCarouselBlock extends BlockBase implements ContainerFactoryPlugi
   }
 
   /**
-   *
+   * Creates an instance of the block.
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
     return new static(
@@ -43,7 +47,7 @@ class TrustpilotCarouselBlock extends BlockBase implements ContainerFactoryPlugi
   }
 
   /**
-   *
+   * Provides default configuration for the block.
    */
   public function defaultConfiguration() {
     return [
@@ -52,7 +56,7 @@ class TrustpilotCarouselBlock extends BlockBase implements ContainerFactoryPlugi
   }
 
   /**
-   * {@inheritdoc}
+   * Provides the form for configuring the block.
    */
   public function blockForm($form, FormStateInterface $form_state) {
     $form['review_count'] = [
@@ -66,14 +70,14 @@ class TrustpilotCarouselBlock extends BlockBase implements ContainerFactoryPlugi
   }
 
   /**
-   * {@inheritdoc}
+   * Handles the submission of the block configuration form.
    */
   public function blockSubmit($form, FormStateInterface $form_state) {
     $this->configuration['review_count'] = $form_state->getValue('review_count');
   }
 
   /**
-   * {@inheritdoc}
+   * Fetches reviews from the Trustpilot API endpoint and renders them.
    */
   public function build() {
     $review_count = (int) $this->configuration['review_count'];
@@ -96,7 +100,8 @@ class TrustpilotCarouselBlock extends BlockBase implements ContainerFactoryPlugi
       ],
       '#cache' => [
         'tags' => ['trustpilot_reviews_data'],
-        // 'max-age' => 3600,
+      // Cache for 1 hour.
+        'max-age' => 3600,
       ],
     ];
   }

@@ -54,7 +54,6 @@ class TrustpilotCarouselBlockKernelTest extends KernelTestBase {
     $this->assertEquals(3600, $render_array['#cache']['max-age']);
   }
 
-
   /**
    * Tests block render output for review_count = 3.
    */
@@ -70,4 +69,5 @@ class TrustpilotCarouselBlockKernelTest extends KernelTestBase {
     $this->assertEquals(['trustpilot_reviews_data'], $render_array['#cache']['tags']);
     $this->assertEquals(3600, $render_array['#cache']['max-age']);
   }
+
 }

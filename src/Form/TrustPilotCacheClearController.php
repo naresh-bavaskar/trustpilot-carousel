@@ -6,7 +6,7 @@ use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- *
+ * Form to clear the Trustpilot Carousel cache.
  */
 class TrustPilotCacheClearController extends ConfigFormBase {
 

@@ -2,19 +2,21 @@
 
 /**
  * @file
+ * Provides the Trustpilot Carousel module custom functionality.
  */
-
 
 /**
  * Implements hook_theme().
  */
 function trustpilot_carousel_theme($existing, $type, $theme, $path) {
   return [
-    'trustpilot_reviews' => [  // note underscore, be consistent everywhere
+  // Note underscore, be consistent everywhere.
+    'trustpilot_reviews' => [
       'variables' => [
         'reviews' => [],
       ],
-      'template' => 'trustpilot-reviews', // trustpilot-reviews.html.twig file expected
+      // trustpilot-reviews.html.twig file expected.
+      'template' => 'trustpilot-reviews',
     ],
   ];
 }
